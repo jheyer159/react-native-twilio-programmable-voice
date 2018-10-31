@@ -486,6 +486,11 @@ public class TwilioVoiceModule extends ReactContextBaseJavaModule implements Act
     }
 
     @ReactMethod
+    public void getAccessToken(Promise promise){
+        promise.resolve(accessToken);
+    }
+
+    @ReactMethod
     public void initWithAccessToken(final String accessToken, Promise promise) {
         if (accessToken.equals("")) {
             promise.reject(new JSApplicationIllegalArgumentException("Invalid access token"));

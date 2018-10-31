@@ -44,6 +44,13 @@ const Twilio = {
         }
         return result
     },
+    async getAccessToken(){
+        if (Platform.OS === ANDROID){
+            return await TwilioVoice.getAccessToken()
+        } else {
+            return //TODO: add ios getAccessToken
+        }
+    },
     initWithTokenUrl(url) {
         if (Platform.OS === IOS) {
             TwilioVoice.initWithAccessTokenUrl(url)
